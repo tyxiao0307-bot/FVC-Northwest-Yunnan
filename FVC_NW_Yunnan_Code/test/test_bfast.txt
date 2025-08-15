@@ -1,15 +1,18 @@
-# BFAST快速测试
+python
+# BFAST quick test
 import numpy as np
-from BFAST_Python.bfast_main import BFAST  # 根据实际路径调整
+from BFAST_Python.bfast_main import BFAST
 
-# 创建测试数据
+# Generate test data
+np.random.seed(123)
 n = 100
 time = np.arange(n)
-data = np.sin(2*np.pi*time/10) + np.random.normal(0, 0.5, n)
-data[50:] += 3  # 在第50个时间点添加突变
+data = np.sin(2 * np.pi * time / 10) + np.random.normal(0, 0.5, n)
+data[50:] += 3  # Add breakpoint at position 50
 
-# 运行BFAST
+# Run BFAST
 model = BFAST(start=0, freq=1, h=0.15)
 result = model.fit(data, time)
 
-print("检测到的突变点:", result.breaks)
+# Output results
+print(f"Detected breakpoints: {result.breaks}")
