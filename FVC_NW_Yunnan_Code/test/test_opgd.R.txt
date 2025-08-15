@@ -1,4 +1,4 @@
-# OPGD快速测试
+# OPGD
 library(GD)
 set.seed(123)
 test_data <- data.frame(
@@ -7,4 +7,5 @@ test_data <- data.frame(
   Precipitation = runif(100, 800, 1500)
 )
 result <- gdm(FVC ~ Elevation + Precipitation, data = test_data)
+
 print(result)
