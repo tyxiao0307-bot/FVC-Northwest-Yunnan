@@ -1,0 +1,15 @@
+# BFAST快速测试
+import numpy as np
+from BFAST_Python.bfast_main import BFAST  # 根据实际路径调整
+
+# 创建测试数据
+n = 100
+time = np.arange(n)
+data = np.sin(2*np.pi*time/10) + np.random.normal(0, 0.5, n)
+data[50:] += 3  # 在第50个时间点添加突变
+
+# 运行BFAST
+model = BFAST(start=0, freq=1, h=0.15)
+result = model.fit(data, time)
+
+print("检测到的突变点:", result.breaks)
