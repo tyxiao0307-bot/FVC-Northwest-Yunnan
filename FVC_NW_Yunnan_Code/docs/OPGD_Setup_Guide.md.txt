@@ -1,0 +1,7 @@
+OPGD R环境配置
+1. 安装R 4.0+
+2. 安装GD包：
+   ```r
+   install.packages("GD")
+3.运行：
+Rscript test/test_opgd.R
